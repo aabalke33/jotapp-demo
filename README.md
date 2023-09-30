@@ -2,7 +2,7 @@
 Simplify Clinical Notetaking
 
 ## Demo
-A demo of the web application is available here: 
+A demo of the web application is available [here](https://jotapp-demo.vercel.app/).
 
 Email: user@jotappdemo.app
 
