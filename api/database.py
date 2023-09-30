@@ -2,7 +2,7 @@
 import pandas as pd
 # from sqlalchemy import create_engine, text, Column, Integer, String
 # from sqlalchemy.orm import Session, declarative_base
-from demo_queries import query_one, query_two, query_three
+from .demo_queries import query_one, query_two, query_three
 
 
 # db_ssl = {"ssl": {"ssl_ca": "/etc/ssl/cert.pem"}}
