@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jot</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='jot_icon.svg') }}">
+    <link rel="stylesheet" href="https://use.typekit.net/ovf1gen.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='statements.css') }}">
+
+    <script> var data = {{ data | tojson }}</script>
+    <script> var noteId = {{ note["note_id"]}}</script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+
+<body onload="onload()">
+    <div class="load-div" id="load-div">
+        <p id="loading-text">loading...</p>
+    </div>
+    <div class="row" id="main-div" style="display: none;">
+        <div class="column left" style="background-color:#1a1a1a;">
+            <div class="colheader">
+                <h1 style="color: white;">jot</h1>
+                <button type="button" onclick="newNote()"><strong class="bold">+</strong> New Note</button>
+                <p>Current Note Template:<br>{{note["note_name"]}}</p>
+            </div>
+            <div id="categories" class="categories">
+            </div>
+            <div id="navfooter" class="navfooter">
+                <p style="cursor: default;">{{first_name}} {{last_name}}</p>
+                <!-- <p class="navlink">Settings</p> -->
+                <p class="navlink"><a href="/logout">Logout</a></p>
+
+            </div>
+        </div>
+        <div class="column middle" style="background-color:#f8f8f8;">
+            <div class="middle_header">
+                <h2 id="categoryTitle">HEADING</h2>
+                <div class="header_div_fixed" id="header_div_fixed">
+                    <form class="headingForm" id="headingForm" name="HeadingForm">
+                        <label class='headinglabel-1 headinglabel-2' style='display:none;'>Name<input class='heading_input' id='nameinput' type='text' placeholder='Name' name='nameinput'></label>
+                        <label class='headinglabel-3' style='display:none;'>Name of Couple<input class='heading_input' id='nameofcoupleinput' type='text' placeholder='Name of Couple' name='nameofcoupleinput'></label>
+                        <label class='headinglabel-3' style='display:none;'>Partner A Name<input class='heading_input' id='partneranameinput' type='text' placeholder='Partner A Name' name='partneranameinput'></label>
+                        <label class='headinglabel-3' style='display:none;'>Partner B Name<input class='heading_input' id='partnerbnameinput' type='text' placeholder='Partner B Name' name='partnerbnameinput'></label>
+                        <label class='headinglabel-3' style='display:none;'>Name of Identified Client<input class='heading_input' id='nameofidentifiedclientinput' type='text' placeholder='Name of Identified Client' name='nameofidentifiedclientinput'></label>
+                        <label class='headinglabel-1 headinglabel-2 headinglabel-3' style='display:none;'>Date<input class='heading_input' id='dateinput' type='date' placeholder='Date' name='dateinput' onfocusout='validateDate()'></label>
+                        <label class='headinglabel-1 headinglabel-2 headinglabel-3' style='display:none;'>Start Time<input class='heading_input' id='starttimeinput' type='time' placeholder='Start Time' name='starttimeinput' onfocusout='validateTime()'></label>
+                        <label class='headinglabel-1 headinglabel-2 headinglabel-3' style='display:none;'>End Time<input class='heading_input' id='endtimeinput' type='time' placeholder='End Time' name='endtimeinput' onfocusout='validateTime()'></label>
+                        <label class='headinglabel-1 headinglabel-2 headinglabel-3' style='display:none;'>Fee<input class='heading_input' id='feeinput' type='number' placeholder='Fee' name='feeinput' min='0.00' max='1000.00' step='10' onfocusout='validateFee()'></label>
+                        <label class='headinglabel-1 headinglabel-2 headinglabel-3' style='display:none;'>CPT Code<input class='heading_input' id='cptcodeinput' type='text' placeholder='CPT Code' name='cptcodeinput' minlength='5' maxlength='5' onfocusout='validateCPT()'></label>
+                        <label class='headinglabel-1' style='display:none;'>Diagnosis Code<input class='heading_input' id='diagnosiscodeinput' type='text' placeholder='Diagnosis Code' name='diagnosiscodeinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Date of Birth<input class='heading_input' id='dateofbirthinput' type='date' placeholder='Date of Birth' name='dateofbirthinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Address<input class='heading_input' id='addressinput' type='text' placeholder='Address' name='addressinput'></label>
+                        <label class='headinglabel-2 headinglabel-3' style='display:none;'>Referral Source<input class='heading_input' id='referralsourceinput' type='text' placeholder='Referral Source' name='referralsourceinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Phone<input class='heading_input' id='phoneinput' type='text' placeholder='Phone' name='phoneinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>OK to Leave Message?<input class='heading_input' id='oktoleavemessageinput' type='text' placeholder='OK to Leave Message?' name='oktoleavemessageinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Marital Status<input class='heading_input' id='maritalstatusinput' type='text' placeholder='Marital Status' name='maritalstatusinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Living Arrangement<input class='heading_input' id='livingarrangementinput' type='text' placeholder='Living Arrangement' name='livingarrangementinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Occupation<input class='heading_input' id='occupationinput' type='text' placeholder='Occupation' name='occupationinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Education Level<input class='heading_input' id='educationlevelinput' type='text' placeholder='Education Level' name='educationlevelinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Emergency Contact Name<input class='heading_input' id='emergencycontactnameinput' type='text' placeholder='Emergency Contact Name' name='emergencycontactnameinput'></label>
+                        <label class='headinglabel-2' style='display:none;'>Emergency Contact Phone<input class='heading_input' id='emergencycontactphoneinput' type='text' placeholder='Emergency Contact Phone' name='emergencycontactphoneinput'></label>
+                        <label class='headinglabel-3' style='display:none;'>Prolonged Service Note<input class='heading_input' id='prolongedservicenoteinput' type='text' placeholder='Prolonged Service Note' name='prolongedservicenoteinput'></label>
+                        <label class='headinglabel-3' style='display:none;'>Diagnosis (Identify Client)<input class='heading_input' id='diagnosisidentifyclientinput' type='text' placeholder='Diagnosis (Identify Client)' name='diagnosisidentifyclientinput'></label>
+                        <label class='headinglabel-3' style='display:none;'>Diagnostic Code (Identify Client)<input class='heading_input' id='diagnosticcodeidentifyclientinput' type='text' placeholder='Diagnostic Code (Identify Client)' name='diagnosticcodeidentifyclientinput'></label>
+                        <label class='headinglabel-3' style='display:none;'>Couple Characteristics<input class='heading_input' id='couplecharacteristicsinput' type='text' placeholder='Couple Characteristics' name='couplecharacteristicsinput'></label>
+                    </form>
+                </div>
+                <form class='searchbox' id="searchbox" name="searchbox" style="display: none;">
+                    <input id="searchBar" type="text" placeholder="Search Statements ( / )" name="search">
+                </form>
+            </div>
+            <div class="statements_div_fixed">
+                <div id="statements_div" class="statements_div">
+                </div>
+            </div>
+            <div class="middle_footer" id="middle_footer" style="display: none;">
+                <p class="fine_print"><em>These statements are saved on a cloud provider. Do not create statements with
+                    PPI or PHI.</em></p>
+            </div>
+        </div>
+        <div class="column right" style="background-color:#ffffff;">
+            <div class="right_header">
+                <h2>NOTE</h2>
+                <div class="note-content-body-fixed">
+                    <div class="note-content-body" id="note-content-body">
+                        <div class="note-heading" id="note-heading">
+                            <p class="note-heading-p"><b>Name: </b><span id="note-heading-name"></span></p>
+                            <p class="note-heading-p"><b>Name Of Couple: </b><span id="note-heading-name-of-couple"></span></p>
+                            <p class="note-heading-p"><b>Partner A Name: </b><span id="note-heading-partner-a-name"></span></p>
+                            <p class="note-heading-p"><b>Partner B Name: </b><span id="note-heading-partner-b-name"></span></p>
+                            <p class="note-heading-p"><b>Name Of Identified Client: </b><span id="note-heading-name-of-identified-client"></span></p>
+                            <p class="note-heading-p"><b>Date: </b><span id="note-heading-date"></span></p>
+                            <p class="note-heading-p"><b>Start Time: </b><span id="note-heading-start-time"></span></p>
+                            <p class="note-heading-p"><b>End Time: </b><span id="note-heading-end-time"></span></p>
+                            <p class="note-heading-p"><b>Fee: </b><span id="note-heading-fee"></span></p>
+                            <p class="note-heading-p"><b>CPT Code: </b><span id="note-heading-cpt-code"></span></p>
+                            <p class="note-heading-p"><b>Diagnosis Code: </b><span id="note-heading-diagnosis-code"></span></p>
+                            <p class="note-heading-p"><b>Date Of Birth: </b><span id="note-heading-date-of-birth"></span></p>
+                            <p class="note-heading-p"><b>Address: </b><span id="note-heading-address"></span></p>
+                            <p class="note-heading-p"><b>Referral Source: </b><span id="note-heading-referral-source"></span></p>
+                            <p class="note-heading-p"><b>Phone: </b><span id="note-heading-phone"></span></p>
+                            <p class="note-heading-p"><b>Ok To Leave Message? </b><span id="note-heading-ok-to-leave-message"></span></p>
+                            <p class="note-heading-p"><b>Marital Status: </b><span id="note-heading-marital-status"></span></p>
+                            <p class="note-heading-p"><b>Living Arrangement: </b><span id="note-heading-living-arrangement"></span></p>
+                            <p class="note-heading-p"><b>Occupation: </b><span id="note-heading-occupation"></span></p>
+                            <p class="note-heading-p"><b>Education Level: </b><span id="note-heading-education-level"></span></p>
+                            <p class="note-heading-p"><b>Emergency Contact Name: </b><span id="note-heading-emergency-contact-name"></span></p>
+                            <p class="note-heading-p"><b>Emergency Contact Phone: </b><span id="note-heading-emergency-contact-phone"></span></p>
+                            <p class="note-heading-p"><b>Prolonged Service Note: </b><span id="note-heading-prolonged-service-note"></span></p>
+                            <p class="note-heading-p"><b>Diagnosis Identify Client: </b><span id="note-heading-diagnosis-identify-client"></span></p>
+                            <p class="note-heading-p"><b>Diagnostic Code Identify Client: </b><span id="note-heading-diagnostic-code-identify-client"></span></p>
+                            <p class="note-heading-p"><b>Couple Characteristics: </b><span id="note-heading-couple-characteristics"></span></p>
+                        </div>
+                        <p style="padding: 25px 0;">Session Note</p>
+                        <p id="note-body">
+                        </p>
+                    </div>
+                </div>
+                <div class="note_footer">
+                    <div class="note_footer_buttons">
+                        <div class="delete_button_box">
+                            <button type="button" id="copy" onclick="copyClipboard()">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+
+</html>

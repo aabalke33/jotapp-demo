@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>jot</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='jot_icon.svg') }}">
+    <link rel="stylesheet" href="https://use.typekit.net/ovf1gen.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}">
+</head>
+<body>
+<div class="row">
+    <div class="box" style="background-color:#1a1a1a;">
+        <div class="colheader">
+            <h1 style="color: white;">jot</h1>
+            <p><em>Simplified Clinical Notes</em></p>
+            <form action="#" method="post">
+                <input name="email" type="text" placeholder="Email">
+                <input name="password" type="password" placeholder="Password">
+                <div class="sign_in_box">
+                    <!-- <div class="pass_box">
+                        <a class="pass_link" href="/">Forgot Password?</a>
+                    </div> -->
+                    <input name="submit" class="sign_in_button_temp" type="submit" value="Sign In">
+                    <!-- <div class="sign_box">
+                        <input name="submit" class="sign_in_button" type="submit" value="Sign In">
+                    </div> -->
+                </div>
+                {% with flash = get_flashed_messages()%}
+                {% if flash %}
+                <p><em>{{flash[0]}}</em></p>
+                {% endif %}
+            {% endwith%}
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

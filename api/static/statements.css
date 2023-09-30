@@ -1,0 +1,93 @@
+.subcategory {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    text-align: left;
+    padding: 12px 0;
+    width: 100%;
+    float: none;
+}
+
+.header {
+    width: 100%;
+    float: none;
+}
+
+.snippet {
+    font-style: normal;
+    float: none;
+}
+
+.subcategory-stem {
+    float: none;
+    font-style: italic;
+}
+
+.statement-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.statement {
+    font-style: normal;
+    padding: 6px 0;
+}
+
+.statement-snippet-front,
+.statement-snippet-back {
+    float: left;
+    font-style: italic;
+    width: 100%;
+}
+
+.statement-snippet-back {
+    padding-bottom: 24px;
+}
+
+.statement-option {
+    display: block;
+    font-style: normal;
+    border-radius: 4px;
+    padding: 4px 16px;
+    background-color: #f8f8f8;
+    transition: 0.3s;
+    border-left: 3px solid #e6e9eb;
+}
+
+.statement-option:hover {
+    background-color: #e6e9eb;
+}
+
+.option-three {
+    float: left;
+    width: 33%;
+    margin: 6px 0;
+}
+.option-pso {
+    float: left;
+    width: 7%;
+}
+.snippet-pso {
+    float: left;
+    width: 79%;
+}
+
+.text-area {
+    resize: none;
+    width: 100%;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    text-align: left;
+    padding: 6px;
+    width: 100%;
+    float: none;
+    border: none;
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}

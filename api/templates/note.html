@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jot</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='jot_icon.svg') }}">
+    <link rel="stylesheet" href="https://use.typekit.net/ovf1gen.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='note_style.css') }}">
+
+    <script src="{{ url_for('static', filename='note.js') }}"></script>
+    <script>const notes = {{ notes | tojson }}</script>
+
+</head>
+<body>
+<div class="row">
+    <div class="box">
+        <div class="colheader">
+            {% with flash = get_flashed_messages()%}
+                {% if flash %}
+                    <h2>{{flash[0]}}</h2>
+                {% endif %}
+            {% endwith%}
+
+            <h2>Choose a Note</h2>
+            <script>load_notes(notes)</script>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+* {
+     box-sizing: border-box;
+}
+ body {
+     margin: 0px;
+     background-color: #f8f8f8;
+}
+ .row {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .box {
+    float: left;
+    padding: 0px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 360px;
+    height: 360px;
+    background-color:#1a1a1a;
+    border: none;
+    border-radius: 32px;
+}
+ .colheader{
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    width: 75%;
+    text-align: center;
+    color: white;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-60%);
+}
+ .categories {
+     padding: 36px 0px;
+}
+ .category_div {
+     cursor: pointer;
+     display:block;
+     transition: 0.3s;
+     color: #ccc;
+     padding: 0px 12px;
+     position:relative;
+     letter-spacing: 1px;
+}
+ .category_div:hover {
+     color: white;
+}
+ h1 {
+     font-family: "proxima-nova", sans-serif;
+     font-weight: 700;
+     font-style: normal;
+     font-size: 64px;
+     text-align: center;
+     margin: 0px;
+}
+ h2 {
+     font-family: "proxima-nova", sans-serif;
+     font-weight: 700;
+     font-style: normal;
+     font-size: 32px;
+     text-align: left;
+     margin: 0px;
+     letter-spacing: 1px;
+}
+ h3 {
+     text-align: right;
+     font-family: "proxima-nova", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+     font-size: 24px;
+     text-transform: uppercase;
+}
+ .left p {
+     color: #ccc;
+}
+ p {
+     font-family: "proxima-nova", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+     font-size: 16px;
+     margin: 0;
+     padding:0;
+}
+
+.sign_in_button_temp {
+    border: none;
+    background-color: #0087a8;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 8px 32px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    transition: 0.3s;
+    margin: 0 auto;
+
+}
+ .sign_in_button {
+     border: none;
+     background-color: #0087a8;
+     color: white;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 4px;
+     padding: 8px 32px;
+     margin: 0;
+     font-family: "proxima-nova", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+     font-size: 16px;
+     display:block;
+     transition: 0.3s;
+}
+.sign_in_button_temp:hover,
+.sign_in_button:hover {
+     background-color: #006680;
+     color: #eeeeee;
+     cursor: pointer;
+}
+ .bold {
+     font-weight: 900;
+}
+ a {
+     color: inherit;
+     text-decoration: inherit;
+}
+ .row:after {
+     content: "";
+     display: table;
+     clear: both;
+}
+ input[type=text], input[type=password] {
+     padding: 8px 16px;
+     margin-top: 8px;
+     font-family: "proxima-nova", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+     font-size: 16px;
+     border: none;
+     border-radius: 8px;
+     width: 100%;
+     outline: none;
+}
+ input[type=text]::placeholder, input[type=password]::placeholder {
+     font-family: "proxima-nova", sans-serif;
+     font-weight: 400;
+     font-style: italic;
+     font-size: 16px;
+     color: #aaa;
+}
+ .middle_header {
+     height: 8vh;
+     margin: 16px;
+     margin-top: 48px;
+     margin-bottom: 0;
+}
+ .statements_div_fixed {
+     height: 80vh;
+     padding: 16px;
+}
+ .statements_div {
+     height: 100%;
+     overflow: auto;
+}
+ .statement_div {
+     border-radius: 4px;
+     padding: 6px 6px;
+     background-color: #f8f8f8;
+     transition: 0.3s;
+}
+ .statement_div:hover {
+     background-color: #e6e9eb;
+}
+
+ .statement_div p {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 2px;
+}
+.button_delete {
+    background-color: #a80000;
+}
+.button_delete:hover {
+     background-color: #bf0000;
+     color: white;
+     cursor: pointer;
+}
+
+.middle_footer_buttons {
+    display: flex;
+    justify-content: center;
+}
+.delete_button_box {
+    margin-right: 16px;
+}
+.fine_print {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    color: #aaa;
+}
+.pass_link {
+    text-decoration: inherit;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    margin: 0;
+    padding:0;
+    color: #888;
+    justify-content: left;
+}
+.sign_in_box {
+    margin: 16px 0px;
+    display: flex;
+}
+.pass_box {
+    width:50%;
+    float: left;
+}
+.sign_box {
+    width:50%;
+    float: right;
+}
+.pass_link {
+float: left;
+}
+.sign_in_button {
+float: right;
+}

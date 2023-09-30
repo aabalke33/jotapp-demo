@@ -1,0 +1,346 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+.load-div {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f8f8f8;
+    display: block;
+}
+.load-div p {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+    color: #1a1a1a;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.row {
+    width: 100vw;
+}
+
+.column {
+    float: left;
+    padding: 0px;
+    height: 100vh;
+}
+
+.left {
+    width: 20vw;
+
+}
+
+.middle {
+    width: 40vw;
+    padding: 0px 0px;
+}
+
+.right {
+    width: 40vw;
+    padding: 0px 0px;
+}
+
+.colheader {
+    text-align: center;
+    color: white;
+}
+
+.categories {
+    padding: 36px 0px;
+}
+
+.category_div {
+    cursor: pointer;
+    display: block;
+    transition: 0.3s;
+    color: #ccc;
+    padding: 0px 12px;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.category_div:hover {
+    color: white;
+}
+
+h1 {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 64px;
+    text-align: center;
+}
+
+h2 {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    text-align: left;
+    margin: 0px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    text-align: right;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.left p {
+    color: #ccc;
+}
+
+p {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    background-color: #0087a8;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 8px 32px;
+    margin: 2px 2px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    margin: 6px auto;
+    display: block;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #006680;
+    color: #eeeeee;
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+input {
+    padding: 8px 16px;
+    margin-top: 8px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
+
+input::placeholder {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 16px;
+    color: #aaa;
+}
+
+label {
+    display: block;
+    padding: 16px 0;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+}
+
+input::-webkit-datetime-edit,
+input::-webkit-datetime-edit-text,
+input::-webkit-datetime-edit-ampm-field,
+input::-webkit-datetime-edit-second-field,
+input::-webkit-datetime-edit-hour-field,
+input::-webkit-datetime-edit-minute-field {
+    font-style: italic;
+    color: #aaa;
+}
+
+.middle_header,
+.right_header {
+    height: 8vh;
+    margin: 16px;
+    margin-top: 48px;
+    margin-bottom: 0;
+}
+.header_div_fixed {
+    height: 90vh;
+}
+.statements_div_fixed {
+    height: 80vh;
+    padding: 16px;
+}
+
+.note-content-body-fixed {
+    height: 84vh;
+    padding: 16px;
+}
+
+.headingForm,
+.statements_div,
+.note-content-body {
+    height: 100%;
+    overflow: auto;
+}
+.note-content-body {
+    transition: 0.1s;
+}
+
+.statement_div {
+    border-radius: 4px;
+    padding: 6px 6px;
+    background-color: #f8f8f8;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.statement_div:hover {
+    background-color: #e6e9eb;
+}
+
+.statements_div h2 {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    color: #1a1a1a;
+    padding: 16px 0px;
+    letter-spacing: 0px;
+}
+
+.statement_div p {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 2px;
+}
+
+.cancel-statement-button,
+.button_delete {
+    background-color: #a80000;
+}
+
+.cancel-statement-button:hover,
+.button_delete:hover {
+    background-color: #bf0000;
+    color: white;
+    cursor: pointer;
+}
+
+.middle_footer_buttons,
+.note_footer_buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.delete_button_box {
+    margin-right: 16px;
+}
+
+.fine_print {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.navfooter {
+    padding: 0px 24px;
+    position: fixed;
+    left: 0px;
+    bottom: 24px;
+}
+
+.navfooter p {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    margin: 12px 0;
+    display: block;
+    color: #ccc;
+    position: relative;
+
+}
+
+.navlink {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navlink:hover {
+    color: white;
+}
+
+.note_footer {
+    display: flex;
+    justify-content: center;
+}
+.note-heading-p {
+    display: none;
+}
+.cancel-statement-button,
+.confirm-statement-button {
+
+    width: 25%;
+    display: inline-block;
+    justify-content: center;
+}
+.cancel-statement-button {
+    margin-right: 16px;
+}
+
+.add-statement-button-div {
+    text-align: center;
+    width: 100%;
+
+}
