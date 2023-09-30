@@ -2,7 +2,7 @@ import json
 import os
 
 from flask import Flask, render_template, redirect, url_for, request, session, flash
-from database import query_login, query_notes, query_note_data, add_statement
+from .database import query_login, query_notes, query_note_data, add_statement
 
 app = Flask(__name__)
 
