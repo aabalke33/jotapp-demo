@@ -1,5 +1,6 @@
 # jot (Demo)
 Simplify Clinical Notetaking
+![gif](https://github.com/aabalke33/jotapp-demo/assets/22086435/f3fbccf8-501d-4be6-ac86-32b25e2b00a2)
 
 ## Demo
 A demo of the web application is available [here](https://jotapp-demo.vercel.app/).
@@ -9,6 +10,10 @@ Email: user@jotappdemo.app
 Password: demoPassword-123
 
 This is not the production database, web server, or application. Additionally, SQL write calls are blocked, so added statements will not be saved for new sessions.
+
+## Youtube Video Breakdown
+
+[<img src="https://github.com/aabalke33/jotapp-demo/assets/22086435/189de5ac-0ce3-4836-9d04-e4b14fa2c7c3" width="50%">](https://www.youtube.com/watch?v=ugFaNqWu9sk)
 
 ## Client Purpose
 Jot is a web application to simplify and automate the session notetaking process for a mental health clinic. This is completed by using sentence snippets to build portions of the session note, and allowing the note contents to be copied into a practice client database (Examples include SimplePractice & TherapyNotes). Most importantly, this application is HIPAA compliant, since all PII and PHI are stored in the client session, never sent to the server, and removed after the session ends.
